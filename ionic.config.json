@@ -1,0 +1,7 @@
+{
+  "name": "tarotistas-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
