@@ -1,0 +1,73 @@
+
+.pageview-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+h1.pageview-title {
+    color: var(--ion-title-color,#00AFEF);
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    margin-top: 5.5rem;
+    margin-bottom: 2rem;
+}
+
+p.pageview-text{
+    max-width: 80%;
+    font-size: 16px;
+    color: var(--ion-text-color-alt,#939393);
+    margin: 0;
+    font-size: 1.125rem;
+    white-space: pre-line;
+}
+
+.pageview-container-button{
+    position: absolute;
+    bottom: 2rem;
+    width: calc(100% - 32px);
+    left: 16px;
+}
+
+.pageview-container-button ion-button{
+    min-height: 50px;
+    font-size: 1.125rem;
+    font-weight: 700;
+    --border-color: var(--ion-primary-button-border-color, #00AFEF);
+    --border-width: 2px;
+    --border-style: solid;
+
+    --color: var(--ion-primary-button-border-color, #00AFEF);
+    --background: var(--ion-primary-button-background-color, #FFF);
+    --background-hover: var(--ion-primary-button-hover-color, #a8def1);
+    --background-activated: var(--ion-primary-button-hover-color, #a8def1);
+    --background-focused: var(--ion-primary-button-hover-color, #a8def1);
+    --ripple-color: #a8def1;
+    
+}
+
+.swiper .swiper-pagination .swiper-pagination-bullet{
+    background: #C4C4C4;
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+
+.swiper .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{
+    width: 16px;
+    height: 16px;
+    background: var(--ion-primary-button-border-color, #00AFEF);
+}
+
+.swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6rem;
+}

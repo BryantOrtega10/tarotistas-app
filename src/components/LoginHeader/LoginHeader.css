@@ -1,0 +1,12 @@
+.login-header-container {
+	background-image: image-set(
+		url("/assets/images/fondoLogin/fondoLogin.png") 1x,
+		url("/assets/images/fondoLogin/fondoLogin@2x.png") 2x,
+		url("/assets/images/fondoLogin/fondoLogin@3x.png") 3x
+	);
+	background-size: contain;
+	background-repeat: no-repeat;
+    padding-top: 5.75rem;
+    padding-bottom: 1.25rem;
+    text-align: center;
+}

@@ -1,2 +1,31 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
+:root{
+    --ion-background-color: #FFF6E7;
+    --label-color: #1D1D1D;
+    --color-primary: #2E0B33;
+    --color-secondary: #B324C8;
+    --color-tertiary: #F18EFF;
+
+    --color-green: #3E4D1D;
+}
+
+h1{
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    color: #000000;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.padding-container{
+    padding: 0 1rem;
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+}
+
+.footer-buttons{
+    box-shadow: none;
+    padding: 1rem;
+    
+}

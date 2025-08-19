@@ -1,0 +1,35 @@
+
+.custom-button-container{
+    /* padding: 0 1rem; */
+    margin-top: 1rem;
+}
+.footer-buttons .custom-button-container{
+    margin-top: 0;
+}
+.custom-button {
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    --box-shadow: 0;
+    --padding-top: 0.1rem;
+    --padding-bottom: 0.1rem;
+    min-height: 3.25rem;
+    box-shadow: 0;
+    margin: auto;    
+    text-transform: none;
+    letter-spacing: normal;
+    
+}
+.custom-button.purple {
+    --background: var(--color-primary);
+    --box-shadow: 0 2px 2px 0px hsla(293, 65%, 12%, 0.21);
+    box-shadow: 0 2px 2px 0px hsla(293, 65%, 12%, 0.21);
+    border: 1px var(--color-primary) solid;
+}
+
+.custom-button.transparent {
+    --background: transparent;
+    --color: var(--color-secondary);
+    border: 1px transparent solid;
+}
