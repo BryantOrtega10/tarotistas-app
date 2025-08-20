@@ -8,23 +8,23 @@
     height: 100%;
     position: relative;
     padding-bottom: 50px;
+    z-index: 1;
 }
 
 h1.pageview-title {
-    color: var(--ion-title-color,#00AFEF);
-    font-size: 1.125rem;
-    font-style: normal;
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
     font-weight: 700;
-    margin-top: 5.5rem;
-    margin-bottom: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
 }
 
 p.pageview-text{
     max-width: 80%;
     font-size: 16px;
-    color: var(--ion-text-color-alt,#939393);
-    margin: 0;
-    font-size: 1.125rem;
+    color: #000;
+    font-size: 1rem;
     white-space: pre-line;
 }
 
@@ -33,27 +33,11 @@ p.pageview-text{
     bottom: 2rem;
     width: calc(100% - 32px);
     left: 16px;
-}
-
-.pageview-container-button ion-button{
-    min-height: 50px;
-    font-size: 1.125rem;
-    font-weight: 700;
-    --border-color: var(--ion-primary-button-border-color, #00AFEF);
-    --border-width: 2px;
-    --border-style: solid;
-
-    --color: var(--ion-primary-button-border-color, #00AFEF);
-    --background: var(--ion-primary-button-background-color, #FFF);
-    --background-hover: var(--ion-primary-button-hover-color, #a8def1);
-    --background-activated: var(--ion-primary-button-hover-color, #a8def1);
-    --background-focused: var(--ion-primary-button-hover-color, #a8def1);
-    --ripple-color: #a8def1;
-    
+    z-index: 2;
 }
 
 .swiper .swiper-pagination .swiper-pagination-bullet{
-    background: #C4C4C4;
+    background: #D9D9D9;
     opacity: 1;
     transition: all 0.5s;
 }
@@ -62,7 +46,7 @@ p.pageview-text{
 .swiper .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{
     width: 16px;
     height: 16px;
-    background: var(--ion-primary-button-border-color, #00AFEF);
+    background: var(--color-primary, #2E0B33);
 }
 
 .swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal{
@@ -70,4 +54,7 @@ p.pageview-text{
     justify-content: center;
     align-items: center;
     margin-bottom: 6rem;
+}
+.onboarding .swiper{
+    z-index: 0;
 }

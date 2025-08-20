@@ -35,6 +35,9 @@ import LoginPage from './pages/LoginPage';
 import RegistrationStep1Page from './pages/RegistrationPages/RegistrationStep1Page';
 import RegistrationStep2Page from './pages/RegistrationPages/RegistrationStep2Page';
 import RegistrationStep3Page from './pages/RegistrationPages/RegistrationStep3Page';
+import Onboarding from './pages/Onboarding';
+import HomePage from './pages/HomePage';
+import MyChatsPage from './pages/ChatsPages/MyChatsPage';
 
 setupIonicReact();
 
@@ -42,6 +45,9 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
+        <Route exact path="/onboarding">
+          <Onboarding />
+        </Route>
         <Route exact path="/login">
           <LoginPage />
         </Route>
@@ -55,6 +61,15 @@ const App: React.FC = () => (
           <RegistrationStep3Page />
         </Route>
 
+        <Route exact path="/mesa-trabajo">
+          <HomePage />
+        </Route>
+        <Route exact path="/my-chats">
+          <MyChatsPage />
+        </Route>
+
+        
+        
         <Route exact path="/">
           <Redirect to="/login" />
         </Route>

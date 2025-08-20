@@ -33,3 +33,24 @@
     --color: var(--color-secondary);
     border: 1px transparent solid;
 }
+
+.custom-button.white {
+    --background: #FFF;
+    --box-shadow: none;
+    box-shadow: none;
+    border: 1px var(--color-primary) solid;
+}
+
+.custom-button.white {
+    --background: #FFF;
+    --box-shadow: none;
+    box-shadow: none;
+    border: 1px var(--color-primary) solid;
+    --color: var(--color-primary);
+    font-size: 0.75rem;
+    --border-radius: 50px;
+    overflow: hidden;
+    border-radius: 50px;
+    min-height: 2rem;
+    display: inline-block;
+}

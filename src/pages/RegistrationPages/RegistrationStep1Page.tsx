@@ -7,7 +7,7 @@ const RegistrationStep1Page: React.FC = () => {
     return (
         <IonPage>
             <IonContent fullscreen className='padding-container'>
-                <h1>Registrate</h1>
+                <h1 className='margen'>Registrate</h1>
                 <CustomProgress step={1} total={3} />
                 <div className='register-form-container'>
                     <CustomTextInput label='Nombre' placeholder='Escrite tu nombre' />

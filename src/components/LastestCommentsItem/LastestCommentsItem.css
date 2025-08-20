@@ -1,0 +1,41 @@
+.lastest-chats-container {
+	border-radius: 8px;
+	background: #fff;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+	padding: 1rem;
+	display: flex;
+	justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.lastest-chats-container figure {
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	margin: 0;
+	border-radius: 50%;
+}
+
+.lastest-chats-itemDesc {
+	flex: 1;
+    padding-left: 1rem;
+}
+
+.lastest-chats-username{
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.lastest-chats-message{
+    font-size: 0.875rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.lastest-chats-replyContainer {
+	text-align: right;
+}
+
+.lastest-chats-replyContainer .custom-button-container{
+	margin: 0;
+}

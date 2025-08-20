@@ -10,7 +10,7 @@ const LoginPage: React.FC = () => {
         <IonPage>
             <IonContent fullscreen>
                 <LoginHeader />
-                <div className='login-form-container'>
+                <div className='login-form-container padding-container'>
                     <CustomTextInput label='Usuario' placeholder='Ingresa tu usuario o correo' />
                     <CustomTextInput label='Contraseña' placeholder='Escrite tu contraseña' type='password' />
                     <CustomButton>Iniciar sesión</CustomButton>

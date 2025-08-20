@@ -12,7 +12,7 @@ const RegistrationStep3Page: React.FC = () => {
     return (
         <IonPage>
             <IonContent fullscreen className='padding-container'>
-                <h1>Registrate</h1>
+                <h1 className='margen'>Registrate</h1>
                 <CustomProgress step={3} total={3} />
                 <div className='register-form-container'>
                     <CustomSelect label='Banco' placeholder='Selecciona tu banco' />

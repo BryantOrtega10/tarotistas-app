@@ -1,0 +1,55 @@
+.status-container {
+	border-radius: 8px;
+	background: #fff;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+	padding: 1rem;
+	display: flex;
+	justify-content: space-between;
+}
+.status-text {
+	display: flex;
+	align-items: center;
+}
+
+.status-text img {
+	margin-right: 0.5rem;
+}
+.status-container span:after {
+	content: "";
+	display: inline-block;
+	position: relative;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	margin-left: 0.6rem;
+}
+.status-online::after {
+	background-color: #23e438;
+}
+.status-offline::after {
+	background-color: #ff0000;
+}
+
+.status-container ion-toggle {
+	--handle-height: 16px;
+	--handle-width: 16px;
+	--handle-spacing: 6px;
+}
+.status-container ion-toggle::part(handle) {
+	background: #a7a7a7;
+}
+.status-container ion-toggle.toggle-checked::part(handle) {
+	background: var(--color-tab-active);
+}
+
+.status-container ion-toggle::part(track) {
+	height: 25px;
+	width: 52px;
+	background-color: #fff;
+	overflow: visible;
+	border: 2px solid #eeeeee;
+}
+.status-container ion-toggle.toggle-checked::part(track) {
+	background-color: #f39fff;
+	border-color: #f39fff;
+}

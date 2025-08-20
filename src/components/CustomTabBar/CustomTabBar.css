@@ -1,0 +1,53 @@
+.footer-tab-bar{
+    box-shadow: none;
+}
+
+.custom-tab-bar-container{
+    background: var(--color-primary);
+    color: #FFF;
+    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.custom-tab-item-container{
+    position: relative;
+    overflow: hidden;
+    width: 25%;
+    border-radius: 5px;
+    padding: 0.5rem 0;
+}
+.custom-tab-item-container:first-child{
+    width: 35%;
+}
+
+.custom-tab-item{
+    text-align: center;
+}
+.custom-tab-item ion-icon{
+    display: block;
+}
+.custon-tab-item-icon-container{
+    font-size: 1.5rem;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    margin: auto;
+}
+
+.tab-active{
+    color: var(--color-tertiary);
+    font-weight: 600;
+}
+
+.tab-active .custon-tab-item-icon-container{
+    color: var(--color-tertiary);
+    background-color: var(--color-tab-active);
+}

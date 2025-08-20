@@ -7,21 +7,46 @@ http://ionicframework.com/docs/theming/ */
     --color-secondary: #B324C8;
     --color-tertiary: #F18EFF;
 
+
+    --color-tab-active: #53135C;
+    
+
     --color-green: #3E4D1D;
 }
 
 h1{
-    font-family: 'Inter', sans-serif;
+    font-family: 'Monserrat', sans-serif;
     font-size: 1.25rem;
     color: #000000;
     font-weight: bold;
+}
+
+h1.margen{
     margin-bottom: 1.5rem;
+}
+
+h3{
+    font-family: 'Monserrat', sans-serif;
+    font-size: 1rem;
+    color: #000000;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
 }
 
 .padding-container{
     padding: 0 1rem;
     --padding-start: 1rem;
     --padding-end: 1rem;
+}
+
+
+.padding-container-all{
+    padding: 1rem 0 1rem 1rem;
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+    --padding-top: 1rem;
+
+    
 }
 
 .footer-buttons{

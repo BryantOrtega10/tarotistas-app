@@ -1,0 +1,27 @@
+import { useHistory } from 'react-router';
+import './CustomTabBar.css';
+import CustomTabItem from './CustomTabItem';
+import { personAddSharp, personCircleOutline, chatbubblesOutline } from 'ionicons/icons';
+
+type CustomTabBarProps = {
+    active: 'home' | 'chat' | 'profile';
+};
+
+const CustomTabBar: React.FC<CustomTabBarProps> = ({ active = 'mesa' }) => {
+
+    const history = useHistory();
+
+    const handleTabItemClick = (newLocation: string) => {
+        //history.replace(newLocation)
+    }
+
+    return (
+        <div className="custom-tab-bar-container">
+            <CustomTabItem isActive={active === 'home'} text='Mesa de trabajo' icon={personAddSharp} onClick={ () => handleTabItemClick('/mesa-trabajo')} />
+            <CustomTabItem isActive={active === 'chat'} text='Mesanjes' icon={chatbubblesOutline} onClick={ () => handleTabItemClick('/my-chats')} />
+            <CustomTabItem isActive={active === 'profile'} text='Perfil' icon={personCircleOutline} onClick={ () => handleTabItemClick('/my-profile')} />
+        </div>
+    );
+};
+
+export default CustomTabBar;

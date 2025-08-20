@@ -7,12 +7,10 @@ import CustomSelect from '../../components/CustomSelect/CustomSelect';
 import CustomTextArea from '../../components/CustomTextArea/CustomTextArea';
 const RegistrationStep2Page: React.FC = () => {
 
- 
-
     return (
         <IonPage>
             <IonContent fullscreen className='padding-container'>
-                <h1>Registrate</h1>
+                <h1 className='margen'>Registrate</h1>
                 <CustomProgress step={2} total={3} />
                 <div className='register-form-container'>
                     <CustomTextInput label='Años de experiencia' placeholder='Número de años de experiencia' type='number' />
