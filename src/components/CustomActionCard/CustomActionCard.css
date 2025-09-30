@@ -1,0 +1,29 @@
+.custom-action-card-container{
+    border-radius: 8px;
+	background: #fff;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+	padding: 0.5rem 1rem;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.custom-action-card-text{
+    font-size: 0.875rem;
+    font-weight: normal;
+    flex: 1;
+}
+.custom-action-card-action{
+    color: var(--color-secondary);
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+.custom-action-card-action .custom-button-container{
+    margin: 0;
+}
+
+.custom-action-card-action .custom-button{
+    min-height: 2.5rem;
+    font-size: 0.875rem;
+}

@@ -28,6 +28,12 @@
     border: 1px var(--color-primary) solid;
 }
 
+.custom-button.purple-outline {
+    --background: transparent;
+     --color: var(--color-primary);
+    border: 1px var(--color-primary) solid;
+}
+
 .custom-button.transparent {
     --background: transparent;
     --color: var(--color-secondary);

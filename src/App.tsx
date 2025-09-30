@@ -38,44 +38,64 @@ import RegistrationStep3Page from './pages/RegistrationPages/RegistrationStep3Pa
 import Onboarding from './pages/Onboarding';
 import HomePage from './pages/HomePage';
 import MyChatsPage from './pages/ChatsPages/MyChatsPage';
+import MyProfileHomePage from './pages/MyProfilePages/MyProfileHomePage';
+import MyAccountDetailsPage from './pages/MyProfilePages/MyAccountDetailsPage';
+import EditProfilePage from './pages/MyProfilePages/EditProfilePage';
+import { AuthProvider } from './context/AuthContext';
+import ChatPage from './pages/ChatsPages/ChatPage';
 
 setupIonicReact();
 
 const App: React.FC = () => (
+
   <IonApp>
     <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/onboarding">
-          <Onboarding />
-        </Route>
-        <Route exact path="/login">
-          <LoginPage />
-        </Route>
-        <Route exact path="/register/step1">
-          <RegistrationStep1Page />
-        </Route>
-        <Route exact path="/register/step2">
-          <RegistrationStep2Page />
-        </Route>
-        <Route exact path="/register/step3">
-          <RegistrationStep3Page />
-        </Route>
+      <AuthProvider>
+        <IonRouterOutlet>
+          <Route exact path="/onboarding">
+            <Onboarding />
+          </Route>
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
+          <Route exact path="/register/step1">
+            <RegistrationStep1Page />
+          </Route>
+          <Route exact path="/register/step2">
+            <RegistrationStep2Page />
+          </Route>
+          <Route exact path="/register/step3">
+            <RegistrationStep3Page />
+          </Route>
 
-        <Route exact path="/mesa-trabajo">
-          <HomePage />
-        </Route>
-        <Route exact path="/my-chats">
-          <MyChatsPage />
-        </Route>
+          <Route exact path="/home">
+            <HomePage />
+          </Route>
+          <Route exact path="/my-chats">
+            <MyChatsPage />
+          </Route>
+          <Route exact path="/my-chats/chat">
+            <ChatPage />
+          </Route>
+          <Route exact path="/my-profile">
+            <MyProfileHomePage />
+          </Route>
+          <Route exact path="/my-profile/details">
+            <MyAccountDetailsPage />
+          </Route>
+          <Route exact path="/my-profile/edit">
+            <EditProfilePage />
+          </Route>
 
-        
-        
-        <Route exact path="/">
-          <Redirect to="/login" />
-        </Route>
-      </IonRouterOutlet>
+
+          <Route exact path="/">
+            <Redirect to="/login" />
+          </Route>
+        </IonRouterOutlet>
+      </AuthProvider>
     </IonReactRouter>
   </IonApp>
+
 );
 
 export default App;

@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 import './CustomTextArea.css';
 
 type CustomTextAreaProps = ComponentProps<typeof IonTextarea> & {
-    label: string;
+    label?: string;
 };
 
 const CustomTextArea: React.FC<CustomTextAreaProps> = ({
@@ -14,14 +14,14 @@ const CustomTextArea: React.FC<CustomTextAreaProps> = ({
 }) => {
     return (
         <div className='custom-text-area-container'>
-            <b>{label}</b>
+            {label && <b>{label}</b>}
             {children}
             <IonTextarea
                 className={`custom-text-area ${className}`}
                 fill="outline"
                 rows={5}
                 {...props}
-            >                
+            >
             </IonTextarea>
         </div>
     );

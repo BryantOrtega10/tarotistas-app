@@ -31,3 +31,27 @@
     margin-bottom: 0.5rem;
     display: block;
 }
+
+.custom-text-input-container.last-item{
+    border-bottom: 1px solid #BABABA;
+    padding-bottom: 0.75rem;
+}
+
+.custom-text-input-container.is-readonly{
+    border-top: 1px solid #BABABA;
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.custom-text-input-container.is-readonly b{
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+}
+
+.custom-text-input-container.is-readonly span{
+    font-size: 1rem;
+    font-weight: regular;
+    font-family: 'Inter', sans-serif;
+    color: #444444;
+}

@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 import './CustomButton.css';
 
 type CustomButtonProps = ComponentProps<typeof IonButton> & {
-    variant?: 'purple' | 'transparent' | 'white';
+    variant?: 'purple' | 'transparent' | 'white' | 'purple-outline';
 };
 
 const CustomButton: React.FC<CustomButtonProps> = ({

@@ -7,10 +7,40 @@ import CustomTabBar from '../../components/CustomTabBar/CustomTabBar';
 const MyChatsPage: React.FC = () => {
 
     const [myChats, setMyChats] = useState<MyChatsItemProps[]>([
-        { user: { name: 'Andres', image: '' }, idChat: 1, lastMessage: "Quería conocer todo el tema...", unReadCount: 7, lastMessageDate: "Hoy 2:45 pm"},
-        { user: { name: 'Natalia', image: '' }, idChat: 1, lastMessage: "Si, te queria consultar aquella...", unReadCount: 7, lastMessageDate: "Hoy 2:45 pm"},
-        { user: { name: 'Camilo Parra', image: '' }, idChat: 1, lastMessage: "Pero en la video llamada que...", unReadCount: 0, lastMessageDate: "Hoy 2:45 pm"},
-        { user: { name: 'Parra', image: '' }, idChat: 1, lastMessage: "Quería conocer todo el tema...", unReadCount: 10, lastMessageDate: "Hoy 2:45 pm"},
+        {
+            client: {
+                id: 1,
+                user: { name: 'Andres', image: '' },
+                birthDate: '10 de octubre de 1994'
+            },
+            idChat: 1, lastMessage: "Quería conocer todo el tema...", unReadCount: 7, lastMessageDate: "Hoy 2:45 pm", messages: []
+        },
+        {
+            client: {
+                id: 1,
+                user: { name: 'Natalia', image: '' },
+                birthDate: '10 de octubre de 1994'
+            },
+            idChat: 1, lastMessage: "Si, te queria consultar aquella...", unReadCount: 7, lastMessageDate: "Hoy 2:45 pm", messages: []
+        },
+        {
+            client: {
+                id: 1,
+                user: { name: 'Camilo Parra', image: '' },
+                birthDate: '10 de octubre de 1994'
+            },
+
+            idChat: 1, lastMessage: "Pero en la video llamada que...", unReadCount: 0, lastMessageDate: "Hoy 2:45 pm", messages: []
+        },
+        {
+            client: {
+                id: 1,
+                user: { name: 'Parra', image: '' },
+                birthDate: '10 de octubre de 1994'
+            },
+
+            idChat: 1, lastMessage: "Quería conocer todo el tema...", unReadCount: 10, lastMessageDate: "Hoy 2:45 pm", messages: []
+        },
     ])
     return (
         <IonPage>

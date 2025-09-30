@@ -1,0 +1,25 @@
+.chat-message-text-container {
+	display: inline-block;
+	padding: 1rem;
+	border-radius: 12px;
+	max-width: 70%;
+    margin-bottom: 2rem;
+}
+
+.chat-message-external {
+	text-align: left;
+}
+.chat-message-external .chat-message-text-container {
+	background: #ffe6d8;
+	color: #000;
+}
+
+.chat-message-own {
+	text-align: right;
+}
+
+.chat-message-own .chat-message-text-container {
+	text-align: left;
+	background: var(--color-primary);
+	color: #fff;
+}

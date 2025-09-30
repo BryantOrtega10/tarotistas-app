@@ -1,19 +1,12 @@
 import { IonImg, IonRippleEffect } from '@ionic/react';
 import './MyChatsItem.css';
 import { useHistory } from 'react-router';
+import { User } from '../../types/models/User';
+import { Chat } from '../../types/models/Chat';
 
-export type MyChatsItemProps = {
-    user: {
-        name: string;
-        image: string;
-    };
-    lastMessage: string;
-    unReadCount: number;
-    lastMessageDate?: string;
-    idChat: number;
-};
+export type MyChatsItemProps = Chat 
 
-const MyChatsItem: React.FC<MyChatsItemProps> = ({user, lastMessage, unReadCount = 0, lastMessageDate, idChat}) => {
+const MyChatsItem: React.FC<MyChatsItemProps> = ({client, lastMessage, unReadCount = 0, lastMessageDate, idChat}) => {
 
     const history = useHistory()
     const handleNavigate = () => {
@@ -24,10 +17,10 @@ const MyChatsItem: React.FC<MyChatsItemProps> = ({user, lastMessage, unReadCount
         <div className={`my-chats-item-container ion-activatable ripple-parent`} onClick={handleNavigate}>
             <IonRippleEffect></IonRippleEffect>
             <figure>
-                <IonImg src={user.image ? user.image : '/assets/images/no-person/no-person.png'} />
+                <IonImg src={client.user.image ? client.user.image : '/assets/images/no-person/no-person.png'} />
             </figure>
             <div className={`my-chats-item-desc`}>
-                <div className={`my-chats-item-username`}>{user.name}</div>
+                <div className={`my-chats-item-username`}>{client.user.name}</div>
                 <div className={`my-chats-item-message`}>{lastMessage}</div>
                 <div className={`my-chats-item-date`}>{lastMessageDate}</div>
             </div>

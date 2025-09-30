@@ -14,8 +14,7 @@ const LoginPage: React.FC = () => {
                     <CustomTextInput label='Usuario' placeholder='Ingresa tu usuario o correo' />
                     <CustomTextInput label='Contraseña' placeholder='Escrite tu contraseña' type='password' />
                     <CustomButton>Iniciar sesión</CustomButton>
-                    <CustomButton>Continuar con Google</CustomButton>
-                    <CustomButton variant='transparent'>Continuar sin iniciar sesión</CustomButton>
+                    <CustomButton variant='transparent'>Continuar con Google</CustomButton>
                     <div className='register-container'>
                         ¿No tienes cuenta? <CustomLink underline>Regístrate</CustomLink>
                     </div>

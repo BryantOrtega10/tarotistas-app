@@ -1,0 +1,39 @@
+.profile-image-container{
+    text-align: center;
+    padding: 1.5rem 0 ;
+}
+
+.profile-image-container figure {
+	width: 120px;
+	height: 120px;
+	overflow: hidden;
+	margin: 0;
+	border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+.profile-image-container figure ion-img{
+    width: 100%;
+}
+
+.profile-image-container .overlay-image{
+    background: hsla(293, 100%, 78%, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile-image-container span{
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
