@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.mdccolombia.tarot.sabila.tarotista;
 
 import com.getcapacitor.BridgeActivity;
 

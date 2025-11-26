@@ -1,11 +1,13 @@
 // src/context/AuthContext.tsx
 import React, { createContext, useContext, useState, ReactNode } from "react";
 import { AuthContextType } from "../types/context/AuthContext";
-import { User } from "../types/models/User";
+import { User } from "../models/User.model";
+import { removeSecureItem } from "../utils/SecureStorage";
+
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export const AuthProvider = ({ children }: { children: ReactNode }) => {
+export default function AuthProvider(props: React.PropsWithChildren<{}>) {
     const [loggedInUser, setLoggedInUser] = useState<User | null>(() => {
         const userData = localStorage.getItem("loggedInUser");
         if (userData) {
@@ -20,6 +22,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
     const logout = () => {
         setLoggedInUser(null);
+        removeSecureItem('access_token');
         localStorage.removeItem("isLoggedIn");
         localStorage.removeItem("loggedInUser");
     }
@@ -30,7 +33,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     return (
         <AuthContext.Provider value={{ loggedInUser, login, logout, updateUser }}>
-            {children}
+            {props.children}
         </AuthContext.Provider>
     );
 };

@@ -1,4 +1,4 @@
-import { IonContent, IonIcon, IonPage } from '@ionic/react';
+import { IonContent, IonHeader, IonIcon, IonPage } from '@ionic/react';
 import CustomBackButton from '../../components/CustomBackButton/CustomBackButton';
 import ProfileImage from '../../components/ProfileImage/ProfileImage';
 import CustomTextInput from '../../components/CustomTextInput/CustomTextInput';
@@ -10,9 +10,12 @@ const EditProfilePage: React.FC = () => {
 
     return (
         <IonPage>
-            <IonContent fullscreen className='padding-container-all'>
+            <IonHeader class='ion-no-border padding-header'>
                 <CustomBackButton>Editar perfil</CustomBackButton>
-                <ProfileImage isEditable user={{ name: "Andres Carvajal", image: '' }} />
+            </IonHeader>
+            <IonContent fullscreen className='padding-container-all'>
+                
+                <ProfileImage isEditable user={{ name: "Andres Carvajal", image: '/assets/images/test-person1.png' }} />
                 <CustomTextInput label='Nombre' value={`Andres Martinez Carvajal`} />
                 <CustomTextInput label='Correo' value={`Andres1@gmail.com`} />
                 <CustomTextInput label='Fecha de nacimiento' value={`1980-07-11`} type='date' />

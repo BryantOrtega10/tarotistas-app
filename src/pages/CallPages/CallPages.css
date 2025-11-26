@@ -1,0 +1,93 @@
+.call-page{
+    --ion-background-color: #313131;
+}
+.call-header{
+    background-color: var(--ion-background-color);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.call-header .birth-date-container span:not(.birth-date-user){
+    color: #FFF;
+}
+.call-title{
+    flex: 1;
+    color: #FFF;
+}
+.call-footer{
+    background-color: var(--ion-background-color);
+}
+.call-content{
+    padding: 1rem;
+    --padding-top: 0;
+}
+.call-main{
+    background-color: #4B4B4B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    border-radius: 12px;
+}
+.receiver-image{
+    width: 7rem;
+    border-radius: 50%;
+    overflow: hidden;    
+    border-style: solid;
+    border-color: #676767;
+    box-sizing: content-box;
+}
+.transmitter-container{
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    background-color: #414141;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7.5rem;
+    height: 11rem;
+    border-radius: 12px;
+   
+}
+
+.transmitter-image{
+    border-style: solid;
+    border-color: #676767;
+    border-radius: 50%;
+    overflow: hidden;
+    box-sizing: content-box;
+    max-width: 4rem;
+}
+
+
+.btn-microphone{
+    --background: #FFF;
+    --border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    --padding-top: 0;
+    --padding-bottom: 0;
+    --padding-start: 0;
+    --padding-end: 0;
+    margin-right: 0.5rem;
+}
+.btn-hang-up{
+    --background: #D72424;
+    --border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    --padding-top: 0;
+    --padding-bottom: 0;
+    --padding-start: 0;
+    --padding-end: 0;
+}
+
+.call-footer{
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

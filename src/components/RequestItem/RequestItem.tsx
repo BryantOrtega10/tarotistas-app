@@ -2,6 +2,7 @@ import { IonImg } from '@ionic/react';
 import './RequestItem.css';
 import CustomButton from '../CustomButton/CustomButton';
 import { User } from '../../types/models/User';
+import { useHistory } from 'react-router';
 
 export type RequestItemProps = {
     user: User,
@@ -10,9 +11,12 @@ export type RequestItemProps = {
 
 const RequestItem: React.FC<RequestItemProps> = ({ user, createdAgo }) => {
 
+    const history = useHistory();
+    
     const handleGoChat = () => {
-        console.log("TODO: go chat")
+        history.push('/my-chats/chat')
     }
+
 
     return (
         <div className={`request-item-container`}>

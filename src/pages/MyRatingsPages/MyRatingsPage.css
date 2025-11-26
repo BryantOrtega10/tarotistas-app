@@ -1,0 +1,13 @@
+.top-bar-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+}
+.top-bar-separator{
+    background-color: #2E0B33;
+    width: 1px;
+    height: 24px;
+    margin: 0 1rem;
+}

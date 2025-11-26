@@ -14,7 +14,7 @@ const ChatPage: React.FC = () => {
     const chat: Chat = {
         client: {
             id: 1,
-            user: { name: 'Andres', image: '' },
+            user: { name: 'Andres', image: '/assets/images/test-person2.png' },
             birthDate: '10 de octubre de 1994'
         },
         idChat: 1,
@@ -27,12 +27,12 @@ const ChatPage: React.FC = () => {
             { id: 3, message: "En lectura de cartas", sender: SenderTypes.CLIENTE },
             { id: 4, message: "¡Claro que sí!", sender: SenderTypes.TAROTISTA },
             { id: 3, message: "En lectura de cartas", sender: SenderTypes.CLIENTE },
-            { id: 3, message: "En lectura de cartas", sender: SenderTypes.CLIENTE },
-            { id: 3, message: "En lectura de cartas", sender: SenderTypes.CLIENTE },
-            { id: 3, message: "En lectura de cartas", sender: SenderTypes.CLIENTE },
-            { id: 3, message: "En lectura de cartas", sender: SenderTypes.CLIENTE },
-            { id: 3, message: "En lectura de cartas", sender: SenderTypes.CLIENTE },
-            { id: 3, message: "En lectura de cartas", sender: SenderTypes.CLIENTE },
+            { id: 3, message: "Este es un mensaje de prueba", sender: SenderTypes.CLIENTE },
+            { id: 3, message: "Este es un mensaje de prueba", sender: SenderTypes.CLIENTE },
+            { id: 3, message: "Este es un mensaje de prueba", sender: SenderTypes.CLIENTE },
+            { id: 3, message: "Este es un mensaje de prueba", sender: SenderTypes.TAROTISTA },
+            { id: 3, message: "Este es un mensaje de prueba", sender: SenderTypes.CLIENTE },
+            { id: 3, message: "Este es un mensaje de prueba", sender: SenderTypes.TAROTISTA },
         ]
     }
 
@@ -47,8 +47,7 @@ const ChatPage: React.FC = () => {
 
     return (
         <IonPage>
-            <IonHeader className='header-chat ion-no-border'>
-
+            <IonHeader className='header-chat ion-no-border padding-header'>
                 <CustomBackButton className="back-chat">
                     <div className='user-chat'>
                         <figure>

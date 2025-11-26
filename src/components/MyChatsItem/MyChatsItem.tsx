@@ -10,7 +10,8 @@ const MyChatsItem: React.FC<MyChatsItemProps> = ({client, lastMessage, unReadCou
 
     const history = useHistory()
     const handleNavigate = () => {
-        //history.push(`/my-chats/${idChat}`)
+        history.push('/my-chats/chat')
+    
     }
 
     return (

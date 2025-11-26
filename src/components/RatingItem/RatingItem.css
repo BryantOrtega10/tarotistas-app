@@ -1,0 +1,71 @@
+.rating-item{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    overflow: hidden;
+    font-family: 'Monserrat', sans-serif;
+    border-top: 1px solid #FFE7C0;
+    padding: 1rem 0;
+}
+.rating-item-user-image{
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 0;
+    margin-right: 2rem;
+    
+}
+.rating-item-desc{
+    flex: 1;
+    width: 100%;
+    position: relative;
+}
+.rating-item-desc .chat-icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.rating-item-desc h3{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-right: 2rem;
+    color: var(--color-primary);
+    font-size: 1rem;
+    font-weight: bold;
+    
+}
+
+.rating-item-desc span{
+  
+    color: #000000;
+    font-size: 0.75rem;
+    font-weight: normal;
+    
+}
+
+
+.rating-item-desc p{
+  
+    color: #444444;
+    font-size: 0.75rem;
+    font-weight: normal;
+    
+}
+.stars-container{
+    display: flex;
+    gap: 4px;
+    color: var(--color-primary);
+}
+
+.rating-item-desc span.rating-number{
+    color: var(--color-secondary);
+    font-weight: bold;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    font-size: 1rem;
+    
+}

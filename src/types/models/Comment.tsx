@@ -4,4 +4,5 @@ export type Comment = {
     user: User;
     message: string;
     replyMessage?: string;
+    messageDate?: string;
 };

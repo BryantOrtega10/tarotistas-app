@@ -23,7 +23,7 @@ const Onboarding: React.FC = () => {
   const clickContinue = async () => {
     const isEnd = swiperInstance?.isEnd;
     if (isEnd) {
-      localStorage.setItem('showOnBoarding', 'NO');
+      localStorage.setItem('onBoardingDone', 'true');
       history.replace('/login');
     }
     else {
@@ -32,7 +32,7 @@ const Onboarding: React.FC = () => {
   };
 
   const clickOmitir = () => {
-    localStorage.setItem('showOnBoarding', 'NO');
+    localStorage.setItem('onBoardingDone', 'true');
     history.replace('/login');
   }
 

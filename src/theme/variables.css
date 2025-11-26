@@ -33,6 +33,8 @@ h3{
     margin-bottom: 0.75rem;
 }
 
+
+
 .padding-container{
     padding: 0 1rem;
     --padding-start: 1rem;
@@ -52,8 +54,47 @@ h3{
 .footer-buttons{
     box-shadow: none;
     padding: 1rem;
+    background-color: var(--ion-background-color);
     
 }
 .text-underline{
     text-decoration: underline;
+}
+.mb-3{
+    margin-bottom: 1.5rem;
+}
+
+.birth-date-container {
+	text-align: right;
+}
+.birth-date-container span {
+	display: block;
+	color: var(--color-primary);
+	font-family: "Monserrat", sans-serif;
+    font-size: 0.85rem;
+}
+.birth-date-container span.birth-date-user {
+	display: inline-block;
+	background-color: var(--color-tertiary);
+	padding: 0.25rem 0.5rem;
+	font-weight: 600;
+	border-radius: 50px;
+	margin-top: 0.5rem;
+    font-size: 0.75rem;
+}
+.padding-header{
+    padding: 0 1rem;
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+    --padding-top: 2rem;
+    padding-top: 2rem;
+    background-color: var(--ion-background-color);
+}
+
+.padding-footer{
+    padding: 1rem 1rem;
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+    --padding-bottom: 2rem;
+    padding-bottom: 2rem;
 }
