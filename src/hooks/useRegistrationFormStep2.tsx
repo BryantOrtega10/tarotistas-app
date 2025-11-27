@@ -26,8 +26,24 @@ export function useRegistrationFormStep2() {
         descripcion: ""
     });
 
+    const validateForm = () => {
+
+        if (!form.pais) return { valid: false, message: "El pais es requerido" };
+        if (form.especialidades.length === 0) return { valid: false, message: "Selecciona al menos una especialidad" };
+        
+
+        return { valid: true };
+    };
+
 
     const handleContinueForm = async () => {
+        const validation = validateForm();
+        if (!validation.valid) {
+            setErrorMessage(validation.message ?? "Error desconocido");
+            setShowModal(true);
+            return false;
+        }
+        
         setIsLoading(true);
         try {
             const { success, data } = await AuthService.postCompleteRegister({
@@ -38,7 +54,7 @@ export function useRegistrationFormStep2() {
                 horarioInicio: form.hora_i,
                 pais: form.pais,
             });
-            if (!success) return false;
+            if (!success) { setIsLoading(false); return false; } 
             const user = auth.loggedInUser;
             if (user) {
                 auth.updateUser({ ...user, status: data.status })
@@ -47,9 +63,7 @@ export function useRegistrationFormStep2() {
             }
             
         } catch (err: any) {
-            setErrorMessage(err.message ?? "Error desconocido");
-            setShowModal(true);
-            setIsLoading(false);
+            setShowModal(true);            
             return false;
         }
     }
@@ -82,7 +96,7 @@ export function useRegistrationFormStep2() {
                     setForm({
                         anios: data.anios_exp,
                         pais: data.pais_id,
-                        especialidades: data.especialidades.map((item) => item.id.toString()),
+                        especialidades: data.especialidades.map((item) => item.id),
                         hora_i: data.horario_inicio,
                         hora_f: data.horario_fin,
                         descripcion: data.descripcion_corta
@@ -103,7 +117,7 @@ export function useRegistrationFormStep2() {
     }
 
     const setEspecialidadesSel = (value: string) => {
-        const especialidadesSel: string[] = JSON.parse(value)
+        const especialidadesSel: number[] = JSON.parse(value)
         setForm(prev => ({ ...prev, especialidades: especialidadesSel }));
     }
 

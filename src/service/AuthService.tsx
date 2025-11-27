@@ -1,5 +1,5 @@
-import { CompleteRegisterRequest, LoginRequest, RegisterRequest } from '../types/requests/RegisterRequest';
-import { CompleteRegisterResponse, LoginResponse, RegisterResponse } from '../types/responses/AuthResponse';
+import { CompleteAccountRequest, CompleteRegisterRequest, LoginRequest, RegisterRequest } from '../types/requests/RegisterRequest';
+import { CompleteAccountResponse, CompleteRegisterResponse, LoginResponse, RegisterResponse } from '../types/responses/AuthResponse';
 import { base64ToBlob } from '../utils/base64ToBlob';
 import axios from './AxiosInstance';
 import { AUTH_ENDPOINTS } from './endpoints';
@@ -47,10 +47,22 @@ export const AuthService = {
             return response.data;
         } catch (error: any) {
             console.log(error)
+            console.log("err")
             throw error;
         }
         
     },
+    async postCompleteAccount(request: CompleteAccountRequest): Promise<CompleteAccountResponse>  {
+         try {
+            const response = await axios.post<CompleteAccountResponse>(AUTH_ENDPOINTS.COMPLETAR_CUENTA_TAROTISTA, request);
+            return response.data;
+        } catch (error: any) {
+            console.log(error)
+            throw error;
+        }
+        
+    },
+    
 
     
 }

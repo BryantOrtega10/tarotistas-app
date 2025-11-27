@@ -3,11 +3,14 @@ import React, { createContext, useContext, useState, ReactNode } from "react";
 import { AuthContextType } from "../types/context/AuthContext";
 import { User } from "../models/User.model";
 import { removeSecureItem } from "../utils/SecureStorage";
+import { useHistory } from "react-router";
 
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export default function AuthProvider(props: React.PropsWithChildren<{}>) {
+    const history = useHistory();
+
     const [loggedInUser, setLoggedInUser] = useState<User | null>(() => {
         const userData = localStorage.getItem("loggedInUser");
         if (userData) {
@@ -25,6 +28,7 @@ export default function AuthProvider(props: React.PropsWithChildren<{}>) {
         removeSecureItem('access_token');
         localStorage.removeItem("isLoggedIn");
         localStorage.removeItem("loggedInUser");
+        history.replace("/login");
     }
     const updateUser = (userData: User) => {
         setLoggedInUser(userData);

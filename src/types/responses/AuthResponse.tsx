@@ -1,4 +1,5 @@
 import { User } from "../../models/User.model";
+import { GeneralPostResponse } from "./GeneralResponse";
 
 export interface RegisterResponse{
     success: boolean;
@@ -27,3 +28,5 @@ export interface LoginResponse{
         user: User;
     }   
 }
+
+export interface CompleteAccountResponse extends GeneralPostResponse {}

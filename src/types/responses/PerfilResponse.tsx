@@ -1,4 +1,5 @@
 import { Especialidad } from "../../models/Especialidad.model";
+import { GeneralPostResponse } from "./GeneralResponse";
 
 export interface MiPerfilResponse{
     success: boolean;
@@ -14,3 +15,26 @@ export interface MiPerfilResponse{
         especialidades: Especialidad[];
     }    
 }
+
+
+export interface MiCuentaResponse{
+    success: boolean;
+    message: string;
+    data: {
+        tipo_cuenta?: number;
+        cuenta?: string;
+        banco_id?: number;
+    }    
+}
+
+export interface EstadoConexionResponse{
+    success: boolean;
+    message: string;
+    data: {
+        conexion_status: number;
+    }    
+}
+
+
+
+export interface PostMiCuentaResponse extends GeneralPostResponse {}

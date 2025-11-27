@@ -1,7 +1,7 @@
 import { IonContent, IonFooter, IonHeader, IonImg, IonModal, IonPage, IonTextarea, ToggleCustomEvent } from '@ionic/react';
 import CustomTabBar from '../components/CustomTabBar/CustomTabBar';
 import StatusContainer from '../components/StatusContainer/StatusContainer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './HomePage.css'
 import CustomButton from '../components/CustomButton/CustomButton';
 import RequestItem, { RequestItemProps } from '../components/RequestItem/RequestItem';
@@ -9,57 +9,32 @@ import LastestCommentsItem, { LastestCommentsItemProps } from '../components/Las
 import { Comment } from '../types/models/Comment';
 import CustomTextArea from '../components/CustomTextArea/CustomTextArea';
 import { useHistory } from 'react-router';
+import { PerfilService } from '../service/PerfilService';
+import { useHomePage } from '../hooks/useHomePage';
 
 const HomePage: React.FC = () => {
 
-    const history = useHistory();
-
-    const [status, setStatus] = useState<boolean>(false)
-    const [showReplyModal, setShowReplyModal] = useState<boolean>(false)
-
-    const [requests, setRequests] = useState<RequestItemProps[]>([
-        { user: { name: 'Andres', image: '/assets/images/test-person2.png' }, createdAgo: '15 Mins' },
-        { user: { name: 'Pedro', image: '/assets/images/test-person3.png' }, createdAgo: '15 Mins' },
-        { user: { name: 'Juan Felipe', image: '/assets/images/test-person5.png' }, createdAgo: '15 Mins' }
-    ])
-
-    const [comments, setComments] = useState<Comment[]>([
-        { user: { name: 'Andres', image: '/assets/images/test-person2.png' }, message: 'Hola, estoy interesado en tomar un servicio contigo' },
-        { user: { name: 'Pedro', image: '/assets/images/test-person3.png' }, message: 'Hola2, estoy interesado en tomar un servicio contigo' },
-        { user: { name: 'Maria', image: '/assets/images/test-person4.png' }, message: 'Hola2, estoy interesado en tomar un servicio contigo' },
-        { user: { name: 'Pedro', image: '/assets/images/test-person5.png' }, message: 'Hola2, estoy interesado en tomar un servicio contigo' },
-        { user: { name: 'Juan Felipe', image: '' }, message: 'Hola3, que buen servicio', replyMessage: "Muchas gracias por tomarlo" }
-    ])
-
-    const [selectedComment, setSelectedComment] = useState<Comment | null>(
-        { user: { name: 'Juan Felipe', image: '/assets/images/test-person2.png' }, message: 'Hola3, que buen servicio', replyMessage: "Muchas gracias por tomarlo" }
-    );
-
-    const validateToggle = (event: ToggleCustomEvent<{ checked: boolean }>) => {
-        setStatus(event.detail.checked);
-    };
-
-    const handleOpenModal = (comment: Comment) => {
-        setSelectedComment(comment)
-        setShowReplyModal(true)
-    }
-
-    const handleCloseModal = () => {
-        setShowReplyModal(false)
-    }
-
-    const handleGoChats = () => {
-        history.push('/my-chats')
-    }
-
-    const handleGoCall = () => {
-        history.push('/call')
-    }
+    const {
+        status,
+        chatItems,
+        comentarioItems,
+        response,
+        setResponse,
+        handleGoChat,
+        handleGoChats,
+        handleResponse,
+        validateToggle,
+        handleOpenModal,
+        handleCloseModal,
+        showReplyModal,
+        setShowReplyModal,
+        selectedComment,
+    } = useHomePage();
 
     return (
         <IonPage>
             <IonHeader className='ion-no-border padding-header'>
-                 <img src={`/assets/images/logoHorizontal/logoHorizontal.png`}
+                <img src={`/assets/images/logoHorizontal/logoHorizontal.png`}
                     className='logo-horizontal'
                     srcSet={`
                     /assets/images/logoHorizontal/logoHorizontal.png 1x,
@@ -68,39 +43,49 @@ const HomePage: React.FC = () => {
                 `} />
             </IonHeader>
             <IonContent fullscreen className='padding-container-all'>
-               
+
                 <StatusContainer isActive={status} onIonChange={validateToggle} />
                 <h1>Ultimas solicitudes</h1>
                 <section className='requests-container'>
-                    {requests.map((request, index) =>
-                        <RequestItem {...request} key={`request_${index}`}></RequestItem>
+                    {chatItems.length === 0 && <div className='no-chats'>
+                        <h3>Aun no tienes chats</h3>
+                        <p>Aún no tienes chats. Realiza más servicios para obtener algunos! </p>
+                    </div>}
+                    {chatItems.map((chatItem, index) =>
+                        <RequestItem chat_id={chatItem.idChat} createdAgo={chatItem.fecha} handleGoChat={handleGoChat} user={chatItem.cliente} key={`request_${index}`}></RequestItem>
                     )}
                     <CustomButton variant='transparent' onClick={handleGoChats}>Ver más solicitudes</CustomButton>
                 </section>
                 <h3>Ultimos comentarios</h3>
                 <section className='comments-container'>
-                    {comments.map((comment, index) =>
-                        <LastestCommentsItem {...comment} handleReply={() => handleOpenModal(comment)} key={`comment_${index}`}></LastestCommentsItem>
+                    {comentarioItems.length === 0 && <div className='no-comments'>
+                        <h3>Aun no tienes comentarios</h3>
+                        <p>Aún no tienes comentarios. ¡Sigue realizando servicios para empezar a obtenerlos! </p>
+                    </div>}
+                    {comentarioItems.map((comentario, index) =>
+                        <LastestCommentsItem
+                            {...comentario}
+                            handleReply={() => handleOpenModal(comentario)}
+                            key={`comment_${index}`}></LastestCommentsItem>
                     )}
                 </section>
                 <IonModal className='reply-modal' role='dialog' initialBreakpoint={1} breakpoints={[0, 1]} isOpen={showReplyModal} onWillDismiss={() => setShowReplyModal(false)}>
                     <div className='reply-container'>
                         <div className='selected-comment'>
                             <figure>
-                                <IonImg src={selectedComment?.user.image ? selectedComment?.user.image : '/assets/images/no-person/no-person.png'} />
+                                <IonImg src={selectedComment?.cliente.photo ? `${import.meta.env.VITE_API_BASE_URL}storage/users/${selectedComment?.cliente.photo}` : '/assets/images/no-person/no-person.png'} />
                             </figure>
                             <div className={`selected-comment-itemDesc`}>
-                                <div className={`selected-comment-username`}>{selectedComment?.user.name}</div>
+                                <div className={`selected-comment-username`}>{selectedComment?.cliente.name}</div>
                                 <div className={`selected-comment-message`}>
-                                    {selectedComment?.message}
+                                    {selectedComment?.comentario}
                                 </div>
                             </div>
                         </div>
-                        <CustomTextArea placeholder='Escribir respuesta'></CustomTextArea>
-                        <CustomButton variant='purple-outline' onClick={handleCloseModal}>Responder</CustomButton>
+                        <CustomTextArea placeholder='Escribir respuesta' onIonInput={(e: any) => setResponse(e.target.value)} value={response}></CustomTextArea>
+                        <CustomButton variant='purple-outline' onClick={() => handleResponse(selectedComment?.comentario_id ?? 0)}>Responder</CustomButton>
                     </div>
                 </IonModal>
-                <CustomButton onClick={handleGoCall}>Probar llamada</CustomButton>
                 <br />
             </IonContent>
             <IonFooter className='footer-tab-bar'>

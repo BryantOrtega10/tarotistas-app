@@ -14,7 +14,7 @@ const CustomModalSheet: React.FC<CustomModalSheetProps> = ({
     ...props
 }) => {
     return (
-        <IonModal role="dialog" className='custom-modal' initialBreakpoint={1} breakpoints={[0, 1]}  {...props}>
+        <IonModal role="dialog" className='custom-modal'   {...props}>
             <div className={`custom-modal-content-container ${icon}`}>
                 {(icon && <div className='custom-modal-icon-container'>
                     <img src={`/assets/images/modal-${icon}-icon/modal-${icon}-icon.png`} alt={icon}

@@ -1,4 +1,4 @@
-export interface RegisterRequest{
+export interface RegisterRequest {
     nombre: string;
     email: string;
     password: string;
@@ -6,16 +6,23 @@ export interface RegisterRequest{
     image?: string;
 }
 
-export interface CompleteRegisterRequest{
+export interface CompleteRegisterRequest {
     descripcionCorta?: string;
     horarioInicio?: string;
     horarioFin?: string;
     aniosExp?: string;
     pais?: string;
-    especialidades?: {id: string}[];
+    especialidades?: { id: number }[];
+    terminarRegistro?: string;
 }
 
-export interface LoginRequest{
+export interface LoginRequest {
     email: string;
     password: string;
+}
+
+export interface CompleteAccountRequest {
+    tipoCuenta?: number;
+    cuenta: string;
+    banco: number;
 }

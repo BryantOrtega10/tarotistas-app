@@ -27,9 +27,6 @@ export const AppRoutes: React.FC = () => {
             if(user.status === 3) {
                 return  <Redirect to="/home" />
             }
-            removeSecureItem('access_token');
-            localStorage.removeItem("isLoggedIn");
-            localStorage.removeItem("loggedInUser");
         }
         const onBoardingDone = localStorage.getItem("onBoardingDone");
         if(onBoardingDone){

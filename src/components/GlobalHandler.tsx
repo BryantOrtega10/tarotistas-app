@@ -5,6 +5,8 @@ import { useHistory } from 'react-router';
 import CustomModalSheet from './CustomModalSheet/CustomModalSheet';
 import CustomButton from './CustomButton/CustomButton';
 import { useAuth } from '../context/AuthContext';
+import { IonButton, IonButtons, IonIcon } from '@ionic/react';
+import { closeOutline } from 'ionicons/icons';
 
 const GlobalHandler = () => {
     // Contexto para manejar errores globales (estado de modal y mensajes)
@@ -47,10 +49,15 @@ const GlobalHandler = () => {
         <CustomModalSheet
             isOpen={showModal}
             onDidDismiss={() => setShowModal(false)}
-            icon='error'
         >
-            <b>{errorMessage}</b>
-            <CustomButton onClick={() => setShowModal(false)} variant='white'>
+            <div className='close-x'>
+                <IonButton onClick={() => setShowModal(false)} fill='clear'>
+                    <IonIcon icon={closeOutline} />
+                </IonButton>
+            </div>
+            <h3>Error</h3>
+            <p>{errorMessage}</p>
+            <CustomButton onClick={() => setShowModal(false)} variant='purple-outline'>
                 Cerrar
             </CustomButton>
         </CustomModalSheet>

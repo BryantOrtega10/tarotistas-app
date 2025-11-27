@@ -47,7 +47,7 @@ export function useRegistrationFormStep1() {
                 repeatPassword: form.r_pass,
                 image: form.image
             });
-            if (!success) return false;
+            if (!success) { setIsLoading(false); return false; }
 
             setIsLoading(false);
             await setSecureItem('access_token', data.token);
@@ -55,8 +55,6 @@ export function useRegistrationFormStep1() {
             history.replace('/register/step2');
 
         } catch (err: any) {
-            setErrorMessage(err.message ?? "Error desconocido");
-            setShowModal(true);
             setIsLoading(false);
             return false;
         }

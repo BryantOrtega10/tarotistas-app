@@ -17,7 +17,7 @@ const LoginPage: React.FC = () => {
             <IonContent fullscreen>
                 <LoginHeader />
                 <div className='login-form-container padding-container'>
-                    <CustomTextInput label='Usuario' placeholder='Ingresa tu usuario o correo'  type='email' name='email' onIonInput={handleChangeForm} value={form.email} />
+                    <CustomTextInput label='Correo' placeholder='Ingresa tu correo'  type='email' name='email' onIonInput={handleChangeForm} value={form.email} />
                     <CustomTextInput label='Contraseña' placeholder='Escrite tu contraseña' type='password'  name='password' onIonInput={handleChangeForm} value={form.password}/>
                     <CustomButton onClick={handleContinueForm}>Iniciar sesión</CustomButton>
                     <CustomButton variant='transparent'>Continuar con Google</CustomButton>

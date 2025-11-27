@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useErrorHandlerContext } from "../context/ErrorHandlerContext";
 import { useLoadingContext } from "../context/LoadingContext";
 import { AuthService } from "../service/AuthService";
 import { useHistory } from "react-router";
 import { useAuth } from "../context/AuthContext";
-import { LoginForm, RegistrationForm2 } from "../interfaces/RegistrationForms";
-import { ListasService } from "../service/ListasService";
-import { PerfilService } from "../service/PerfilService";
-import { removeSecureItem, setSecureItem } from "../utils/SecureStorage";
+import { LoginForm } from "../interfaces/RegistrationForms";
+import { setSecureItem } from "../utils/SecureStorage";
 
 export function useLoginForm() {
     const history = useHistory();
@@ -37,13 +35,15 @@ export function useLoginForm() {
             return false;
         }
         setIsLoading(true);
-        setIsLoading(true);
         try {
             const { success, data } = await AuthService.postLogin({
                 email: form.email,
                 password: form.password
             });
-            if (!success) return false;
+            if (!success) { 
+                setIsLoading(false); 
+                return false; 
+            }
                       
             login(data.user)
             await setSecureItem('access_token', data.token);
@@ -56,8 +56,6 @@ export function useLoginForm() {
             }
             
         } catch (err: any) {
-            setErrorMessage(err.message ?? "Error desconocido");
-            setShowModal(true);
             setIsLoading(false);
             return false;
         }
