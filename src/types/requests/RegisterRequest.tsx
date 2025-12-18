@@ -4,6 +4,16 @@ export interface RegisterRequest {
     password: string;
     repeatPassword: string;
     image?: string;
+    tokenPush: string;
+}
+
+export interface SocialRegisterRequest {
+    name: string;
+    email: string;
+    provider_id: string;
+    provider: string;
+    fecha_nacimiento?: string;
+    tokenPush?: string;
 }
 
 export interface CompleteRegisterRequest {
@@ -19,6 +29,7 @@ export interface CompleteRegisterRequest {
 export interface LoginRequest {
     email: string;
     password: string;
+    tokenPush: string;
 }
 
 export interface CompleteAccountRequest {

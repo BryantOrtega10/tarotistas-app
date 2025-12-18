@@ -6,6 +6,7 @@ export interface MiPerfilResponse{
     message: string;
     data: {
         nombre: string;
+        email: string;
         photo: string;
         descripcion_corta: string;
         anios_exp: string;
@@ -38,3 +39,9 @@ export interface EstadoConexionResponse{
 
 
 export interface PostMiCuentaResponse extends GeneralPostResponse {}
+export interface ActualizarPerfilResponse extends GeneralPostResponse {
+    data: {
+        photo?: string;
+    }
+}
+

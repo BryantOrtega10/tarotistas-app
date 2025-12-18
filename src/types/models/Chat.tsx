@@ -13,7 +13,7 @@ export type Message = {
     id: number;
     sender: SenderTypes;
     message: string;
-    created_at?: string;
+    created_at?: string | null;
 }
 
 export enum SenderTypes {

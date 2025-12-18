@@ -2,20 +2,21 @@ import { IonIcon, IonImg, IonRippleEffect } from '@ionic/react';
 import './RatingItem.css';
 import { Rating } from '../../types/models/Rating';
 import { star, starHalf, starOutline } from 'ionicons/icons';
+import { CalificacionItem } from '../../types/responses/CalificacionesResponse';
 
-export type RatingItemProps = Rating & {
+export type RatingItemProps = CalificacionItem & {
     handleClick?: () => void
 }
 
-const RatingItem: React.FC<RatingItemProps> = ({ user, rating, ratingDate, handleClick = () => { } }) => {
+const RatingItem: React.FC<RatingItemProps> = ({ cliente, calificacion, fecha, handleClick = () => { } }) => {
 
     const stars = [];
 
     for (let i = 1; i <= 5; i++) {
-        if (rating >= i) {
+        if (calificacion >= i) {
             // estrella llena
             stars.push(<IonIcon key={i} icon={star} />);
-        } else if (rating >= i - 0.5) {
+        } else if (calificacion >= i - 0.5) {
             // media estrella
             stars.push(<IonIcon key={i} icon={starHalf} />);
         } else {
@@ -29,13 +30,13 @@ const RatingItem: React.FC<RatingItemProps> = ({ user, rating, ratingDate, handl
     return (
         <div className={`rating-item`} onClick={handleClick}>
             <figure className='rating-item-user-image'>
-                <IonImg src={user.image ? user.image : '/assets/images/no-person/no-person.png'} />
+                <IonImg src={cliente.photo ? `${import.meta.env.VITE_API_BASE_URL}storage/users/${cliente.photo}` : '/assets/images/no-person/no-person.png'} />
             </figure>
             <div className='rating-item-desc'>
-                <h3>{user.name}</h3>
-                {ratingDate && <span>{ratingDate}</span>}
+                <h3>{cliente.name}</h3>
+                {fecha && <span>{fecha}</span>}
                 <div className='stars-container'>{stars}</div>
-                <span className='rating-number'>{rating}</span>
+                <span className='rating-number'>{calificacion}</span>
             </div>
         </div>
     );

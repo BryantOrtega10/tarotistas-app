@@ -6,9 +6,11 @@ import { RegistrationForm1 } from "../interfaces/RegistrationForms";
 import { useHistory } from "react-router";
 import { setSecureItem } from "../utils/SecureStorage";
 import { useAuth } from "../context/AuthContext";
+import { useNotificationContext } from "../context/NotificationContext";
 
 export function useRegistrationFormStep1() {
     const history = useHistory();
+    const { tokenFirebase } = useNotificationContext()
     const { setErrorMessage, setShowModal } = useErrorHandlerContext();
     const { setIsLoading } = useLoadingContext();
     const auth = useAuth();
@@ -45,7 +47,8 @@ export function useRegistrationFormStep1() {
                 email: form.correo,
                 password: form.pass,
                 repeatPassword: form.r_pass,
-                image: form.image
+                image: form.image,
+                tokenPush: tokenFirebase ?? ""
             });
             if (!success) { setIsLoading(false); return false; }
 

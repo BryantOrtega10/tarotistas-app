@@ -22,7 +22,6 @@
 	flex: 1;
 }
 
-
 .chat-messages-container {
 	display: flex;
 	flex-direction: column;
@@ -32,42 +31,54 @@
 	padding: 1rem;
 }
 
-.chat-message-textarea-container{
+.chat-message-textarea-container {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	background: #E7CCBD;
+	background: #e7ccbd;
 	padding: 0.3rem 1.25rem;
 	border-radius: 50px;
-	
 }
-.chat-message-textarea-container .custom-text-area-container{
+.chat-message-textarea-container .custom-text-area-container {
 	flex: 1;
 	margin: 0;
 	background: transparent;
 }
-.chat-message-textarea-container .custom-button-container{
+.chat-message-textarea-container .custom-button-container {
 	width: 40px;
 	margin: 0;
 }
-.chat-message-textarea-container .custom-button{
+.chat-message-textarea-container .custom-button {
 	min-height: 40px;
 	--padding-start: 0.5rem;
-    --padding-end: 0.5rem;
+	--padding-end: 0.5rem;
 	--padding-top: 0.5rem;
 	--padding-bottom: 0.5rem;
 }
-.chat-message-textarea-container .custom-text-area{
+.chat-message-textarea-container .custom-text-area {
 	--background: transparent;
 	--border-width: 0;
 	background: transparent;
 	min-height: 0;
 	--highlight-color: transparent;
 	--padding-start: 0;
-	max-height: calc(1.5em * 5); 
-  	overflow-y: auto;   
-
+	max-height: calc(1.5em * 5);
+	overflow-y: auto;
 }
-.chat-message-footer{
+.chat-message-footer {
 	padding: 1rem 0.75rem;
+	padding-bottom: calc( var(--ion-safe-area-bottom) + 0.75rem);
+}
+
+.infinite-overlay {
+	background-color: var(--ion-background-color);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	pointer-events: none; /* evita bloquear el scroll */
+}
+
+.infinite-overlay .infinite-scroll-content {
+	pointer-events: auto; /* permite que el loader funcione */
 }

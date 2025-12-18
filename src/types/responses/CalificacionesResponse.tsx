@@ -1,18 +1,16 @@
 import { User } from "../../models/User.model";
 import { GeneralPostResponse } from "./GeneralResponse";
 
-export interface ComentarioItemHome {
-    comentario_id: number;
+export interface CalificacionItem {
     cliente: User;
-    comentario: string;
-    respuesta_com?: string;
     fecha: string;
+    calificacion: number;
 }
 
-export interface GetComentarioResponse {
+export interface GetCalificacionResponse {
     success: boolean;
     message: string;
-    data: ComentarioItemHome[]
+    data: CalificacionItem[]
     total?: number;
 }
 

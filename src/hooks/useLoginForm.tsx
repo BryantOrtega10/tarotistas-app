@@ -6,12 +6,18 @@ import { useHistory } from "react-router";
 import { useAuth } from "../context/AuthContext";
 import { LoginForm } from "../interfaces/RegistrationForms";
 import { setSecureItem } from "../utils/SecureStorage";
+import { useNotificationContext } from "../context/NotificationContext";
+import { useGoogleAuth } from "../context/GoogleAuthContext";
 
 export function useLoginForm() {
     const history = useHistory();
+    const { tokenFirebase } = useNotificationContext();
     const { setErrorMessage, setShowModal } = useErrorHandlerContext();
     const { setIsLoading } = useLoadingContext();
     const { login } = useAuth();
+    const googleAuth = useGoogleAuth();
+
+    
 
     const [form, setForm] = useState<LoginForm>({
         email: "",
@@ -38,7 +44,8 @@ export function useLoginForm() {
         try {
             const { success, data } = await AuthService.postLogin({
                 email: form.email,
-                password: form.password
+                password: form.password,
+                tokenPush: tokenFirebase ?? ""
             });
             if (!success) { 
                 setIsLoading(false); 
@@ -71,10 +78,47 @@ export function useLoginForm() {
         setForm(prev => ({ ...prev, [name]: value }));
     };
 
+
+    const handleGoogleLogin = async () => {
+        
+        const userData = await googleAuth.login();
+
+        setIsLoading(true);
+        try {
+            const { success, data } = await AuthService.postSocialLogin({
+                email: userData.email,
+                name: userData.name,
+                provider: 'google',
+                provider_id: userData.token,                
+                tokenPush: tokenFirebase ?? ""
+            });
+            if (!success) { 
+                setIsLoading(false); 
+                return false; 
+            }
+                      
+            login(data.user)
+            await setSecureItem('access_token', data.token);
+            setIsLoading(false);
+            if(data.user.status === 1){
+                history.replace('/register/step2');
+            }
+            if(data.user.status === 3){
+                history.replace('/home');
+            }
+            
+        } catch (err: any) {
+            setIsLoading(false);
+            return false;
+        }
+    }
+
+
     return {
         handleContinueForm,
         form,
         handleChangeForm,
-        handleRegister
+        handleRegister,
+        handleGoogleLogin
     }
 }

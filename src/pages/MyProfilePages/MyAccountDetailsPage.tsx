@@ -5,11 +5,12 @@ import CustomTextInput from '../../components/CustomTextInput/CustomTextInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import './MyProfileHomePage.css'
 import { useHistory } from 'react-router';
+import { useAuth } from '../../context/AuthContext';
 
 const MyAccountDetailsPage: React.FC = () => {
 
     const history = useHistory();
-
+    const { loggedInUser } = useAuth(); 
     const handleEditMyProfile = () => {
         history.push('/my-profile/edit')
     }
@@ -21,10 +22,9 @@ const MyAccountDetailsPage: React.FC = () => {
             </IonHeader>
             <IonContent fullscreen className='padding-container-all'>
                 
-                <ProfileImage showName user={{ name: "Andres Carvajal", image: '/assets/images/test-person1.png' }} />
-                <CustomTextInput label='Nombre' readonly>Andres Martinez Carvajal</CustomTextInput>
-                <CustomTextInput label='Correo' readonly>Andres1@gmail.com</CustomTextInput>
-                <CustomTextInput label='Fecha de nacimiento' readonly>11/07/1980</CustomTextInput>
+                <ProfileImage showName user={loggedInUser!} />
+                <CustomTextInput label='Nombre' readonly>{loggedInUser?.name}</CustomTextInput>
+                <CustomTextInput label='Correo' readonly>{loggedInUser?.email}</CustomTextInput>
                 <CustomTextInput label='Contraseña' readonly className='last-item'>*************</CustomTextInput>
                 <CustomButton variant='transparent' className='text-underline' onClick={handleEditMyProfile}>
                     <img src={`/assets/images/lapiz/lapiz.png`}

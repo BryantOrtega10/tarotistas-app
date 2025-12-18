@@ -6,3 +6,12 @@ export type AuthContextType = {
     logout: () => void;
     updateUser: (user: User) => void;
 };
+
+export type GoogleAuthContextType = {
+    login: () => Promise<{
+        token: string;
+        name: string;
+        email: string;
+    }>
+    
+};

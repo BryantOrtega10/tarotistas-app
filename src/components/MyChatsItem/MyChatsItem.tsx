@@ -3,29 +3,26 @@ import './MyChatsItem.css';
 import { useHistory } from 'react-router';
 import { User } from '../../types/models/User';
 import { Chat } from '../../types/models/Chat';
+import { ChatItemHome } from '../../types/responses/ChatResponse';
 
-export type MyChatsItemProps = Chat 
+export type MyChatsItemProps = ChatItemHome &{ 
+    handleGoChat: (chat_id:number) => void
+}
 
-const MyChatsItem: React.FC<MyChatsItemProps> = ({client, lastMessage, unReadCount = 0, lastMessageDate, idChat}) => {
-
-    const history = useHistory()
-    const handleNavigate = () => {
-        history.push('/my-chats/chat')
-    
-    }
+const MyChatsItem: React.FC<MyChatsItemProps> = ({cliente, mensaje, unread = 0, fecha, idChat, handleGoChat}) => {
 
     return (
-        <div className={`my-chats-item-container ion-activatable ripple-parent`} onClick={handleNavigate}>
+        <div className={`my-chats-item-container ion-activatable ripple-parent`} onClick={() => handleGoChat(idChat)}>
             <IonRippleEffect></IonRippleEffect>
             <figure>
-                <IonImg src={client.user.image ? client.user.image : '/assets/images/no-person/no-person.png'} />
+                <IonImg src={cliente.user.photo ? `${import.meta.env.VITE_API_BASE_URL}storage/users/${cliente.user.photo}` : '/assets/images/no-person/no-person.png'} />
             </figure>
             <div className={`my-chats-item-desc`}>
-                <div className={`my-chats-item-username`}>{client.user.name}</div>
-                <div className={`my-chats-item-message`}>{lastMessage}</div>
-                <div className={`my-chats-item-date`}>{lastMessageDate}</div>
+                <div className={`my-chats-item-username`}>{cliente.user.name}</div>
+                <div className={`my-chats-item-message`}>{mensaje}</div>
+                <div className={`my-chats-item-date`}>{fecha}</div>
             </div>
-            {(unReadCount > 0 && <span className='my-chats-item-counter'>{unReadCount}</span>)}
+            {(unread > 0 && <span className='my-chats-item-counter'>{unread}</span>)}
         </div>
     );
 };

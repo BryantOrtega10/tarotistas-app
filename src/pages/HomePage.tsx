@@ -52,7 +52,7 @@ const HomePage: React.FC = () => {
                         <p>Aún no tienes chats. Realiza más servicios para obtener algunos! </p>
                     </div>}
                     {chatItems.map((chatItem, index) =>
-                        <RequestItem chat_id={chatItem.idChat} createdAgo={chatItem.fecha} handleGoChat={handleGoChat} user={chatItem.cliente} key={`request_${index}`}></RequestItem>
+                        <RequestItem chat_id={chatItem.idChat} createdAgo={chatItem.fecha} handleGoChat={handleGoChat} user={chatItem.cliente.user} key={`request_${index}`}></RequestItem>
                     )}
                     <CustomButton variant='transparent' onClick={handleGoChats}>Ver más solicitudes</CustomButton>
                 </section>

@@ -1,4 +1,4 @@
-import { CompleteAccountRequest, CompleteRegisterRequest, LoginRequest, RegisterRequest } from '../types/requests/RegisterRequest';
+import { CompleteAccountRequest, CompleteRegisterRequest, LoginRequest, RegisterRequest, SocialRegisterRequest } from '../types/requests/RegisterRequest';
 import { CompleteAccountResponse, CompleteRegisterResponse, LoginResponse, RegisterResponse } from '../types/responses/AuthResponse';
 import { base64ToBlob } from '../utils/base64ToBlob';
 import axios from './AxiosInstance';
@@ -62,7 +62,16 @@ export const AuthService = {
         }
         
     },
-    
+    async postSocialLogin(request: SocialRegisterRequest): Promise<LoginResponse>  {
+         try {
+            const response = await axios.post<LoginResponse>(AUTH_ENDPOINTS.LOGIN_REDES_TAROTISTA, request);
+            return response.data;
+        } catch (error: any) {
+            console.log(error)
+            throw error;
+        }
+        
+    },
 
     
 }

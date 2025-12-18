@@ -1,6 +1,8 @@
 import axios from './AxiosInstance';
 import { PERFIL_ENDPOINTS } from './endpoints';
-import { EstadoConexionResponse, MiCuentaResponse, MiPerfilResponse, PostMiCuentaResponse } from '../types/responses/PerfilResponse';
+import { ActualizarPerfilResponse, EstadoConexionResponse, MiCuentaResponse, MiPerfilResponse, PostMiCuentaResponse } from '../types/responses/PerfilResponse';
+import { ActualizarPerfilRequest } from '../types/requests/PerfilRequest';
+import { base64ToBlob } from '../utils/base64ToBlob';
 
 
 
@@ -47,6 +49,38 @@ export const PerfilService = {
     async postEstadoConexion(status: boolean): Promise<EstadoConexionResponse> {
         try {
             const response = await axios.post<EstadoConexionResponse>(PERFIL_ENDPOINTS.CAMBIAR_ESTADO_CONEXION.replace(`{status}`, status ? '3' : '1'));
+            return response.data;
+        } catch (error: any) {
+            throw new Error(
+                error?.response?.data?.message ??
+                error?.message ??
+                "Error desconocido."
+            );
+        }
+    },
+    async putActualizarPerfil(request: ActualizarPerfilRequest): Promise<ActualizarPerfilResponse> {
+        try {
+            const formData = new FormData();
+            formData.append('nombre', request.nombre);
+            formData.append('email', request.email);
+            formData.append('descripcionCorta', request.descripcionCorta ?? "");
+            formData.append('horarioInicio', request.horarioInicio ?? "");
+            formData.append('horarioFin', request.horarioFin ?? "");
+            formData.append('aniosExp', request.aniosExp ?? "");
+            formData.append('pais', request.pais ?? "");
+            formData.append('especialidades', JSON.stringify(request.especialidades));
+            
+            if (request.photo) {
+                const contentType = request.photo.match(/^data:(.*);base64/)?.[1] || 'image/jpeg';
+                const blob = base64ToBlob(request.photo, contentType);
+                formData.append('photo', blob, 'photo.jpg');
+            }
+            const response = await axios.post<ActualizarPerfilResponse>(PERFIL_ENDPOINTS.MI_PERFIL, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                }
+            });
+
             return response.data;
         } catch (error: any) {
             throw new Error(

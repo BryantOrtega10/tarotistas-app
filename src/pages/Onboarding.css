@@ -11,3 +11,6 @@
     width: 5rem;
     z-index: 1;
 }
+.swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal{
+    margin-bottom: 9rem;
+}

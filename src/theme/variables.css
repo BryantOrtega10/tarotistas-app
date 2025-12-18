@@ -48,17 +48,23 @@ h3{
     --padding-end: 1rem;
     --padding-top: 1rem;
 
-    
+    padding-bottom: calc( var(--ion-safe-area-bottom) + 0.75rem);
+    --padding-bottom: calc( var(--ion-safe-area-bottom) + 0.75rem);
 }
 
 .footer-buttons{
     box-shadow: none;
     padding: 1rem;
     background-color: var(--ion-background-color);
+    padding-bottom: calc( var(--ion-safe-area-bottom) + 1rem);
     
 }
 .text-underline{
     text-decoration: underline;
+}
+.my-3{
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
 }
 .mb-3{
     margin-bottom: 1.5rem;

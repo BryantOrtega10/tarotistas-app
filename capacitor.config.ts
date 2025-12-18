@@ -1,9 +1,19 @@
-import type { CapacitorConfig } from '@capacitor/cli';
+import type { CapacitorConfig } from "@capacitor/cli";
 
 const config: CapacitorConfig = {
-  appId: 'com.mdccolombia.tarot.sabila.tarotista',
-  appName: 'Tarot de Sábila',
-  webDir: 'dist'
+	appId: "com.mdccolombia.tarot.sabila.tarotista",
+	appName: "Tarot de Sábila",
+	webDir: "dist",
+	plugins: {
+		SocialLogin: {
+			providers: {
+				google: true,
+				facebook: false,
+				apple: false,
+				twitter: false,
+			},
+		},
+	},
 };
 
 export default config;

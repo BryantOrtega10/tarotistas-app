@@ -54,3 +54,39 @@
     font-weight: normal;
     
 }
+
+.comment-item-reply{
+	flex: 1;
+}
+
+.comment-item-reply-me{
+	display: flex;
+	margin-top: 0.5rem;
+	background: #FFF;
+	padding: 1rem 0.5rem;
+	border-radius: 0.5rem;
+    margin-left: -1.2rem;
+}
+.comment-item-reply-me figure{
+    width: 40px;
+	height: 40px;
+	overflow: hidden;
+	margin: 0;
+	margin-right: 0.75rem;
+	border-radius: 50%;
+   
+}
+
+.comment-item-reply-text{
+	flex: 1;
+}
+
+.comment-item-line {
+	top: 4rem;
+	left: -4rem;
+    height: 3rem;
+	border-left: 2px solid var(--color-primary);
+	border-bottom: 2px solid var(--color-primary);
+	position: absolute;
+	width: 28px;
+}

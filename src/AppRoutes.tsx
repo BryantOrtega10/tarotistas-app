@@ -24,13 +24,13 @@ export const AppRoutes: React.FC = () => {
         const userData = localStorage.getItem("loggedInUser");
         if (userData) {
             const user = JSON.parse(userData) as User
-            if(user.status === 3) {
-                return  <Redirect to="/home" />
+            if (user.status === 3) {
+                return <Redirect to="/home" />
             }
         }
         const onBoardingDone = localStorage.getItem("onBoardingDone");
-        if(onBoardingDone){
-            return <Redirect to="/login" />    
+        if (onBoardingDone) {
+            return <Redirect to="/login" />
         }
         return <Redirect to="/onboarding" />
     }
@@ -60,10 +60,10 @@ export const AppRoutes: React.FC = () => {
             <Route exact path="/my-chats">
                 <MyChatsPage />
             </Route>
-            <Route exact path="/my-chats/chat">
+            <Route exact path="/my-chats/chat/:id">
                 <ChatPage />
             </Route>
-            <Route exact path="/call">
+            <Route exact path="/call/:id">
                 <CallPage />
             </Route>
             <Route exact path="/my-profile">
