@@ -1,5 +1,6 @@
-import { User } from "../types/models/User";
+
 import { ClienteTarotista } from "./ClienteTarotista.model";
+import { User } from "./User.model";
 
 export interface Cliente {
   id: number;

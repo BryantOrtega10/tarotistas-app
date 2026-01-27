@@ -3,7 +3,7 @@
 }
 .call-header{
     background-color: var(--ion-background-color);
-    padding: 1rem;
+    padding: 4rem;
     display: flex;
     justify-content: space-around;
     align-items: center;

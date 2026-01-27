@@ -4,6 +4,9 @@ const config: CapacitorConfig = {
 	appId: "com.mdccolombia.tarot.sabila.tarotista",
 	appName: "Tarot de Sábila",
 	webDir: "dist",
+	server: {
+		androidScheme: "https",
+	},
 	plugins: {
 		SocialLogin: {
 			providers: {

@@ -37,3 +37,17 @@ export const CALIFICACIONES_ENDPOINTS  = {
     
     
 };
+
+export const LLAMADAS_ENDPOINTS  = {
+    ACEPTAR: 'api/tarotista/llamada/aceptar/{idLlamada}',
+    SEND_OFFER: 'api/tarotista/llamada/sendOffer/{idLlamada}',    
+    ICE: 'api/tarotista/llamada/ice/{idLlamada}',  
+    ANSWER: 'api/tarotista/llamada/answer/{idLlamada}',  
+
+    RECHAZAR: 'api/tarotista/llamada/cancelar/{idLlamada}',    
+    FINALIZAR: 'api/tarotista/llamada/finalizar/{idLlamada}',
+    DETALLE: 'api/tarotista/llamada/detalle/{idLlamada}',
+    ACTIVA: 'api/tarotista/llamada/activa',
+};
+
+

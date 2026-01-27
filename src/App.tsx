@@ -34,6 +34,8 @@ import './theme/variables.css';
 import GlobalHandler from './components/GlobalHandler';
 import { AppProviders } from './AppProviders';
 import { AppRoutes } from './AppRoutes';
+import CallModalHandler from './components/CallModalHandler';
+import VerifyCallHandler from './components/VerifyCallHandler';
 
 setupIonicReact();
 
@@ -42,6 +44,8 @@ const App: React.FC = () => (
     <IonReactRouter>
       <AppProviders>
         <GlobalHandler />
+        <CallModalHandler />
+        <VerifyCallHandler />
         <AppRoutes />
       </AppProviders>
     </IonReactRouter>

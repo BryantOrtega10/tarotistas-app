@@ -6,6 +6,7 @@ export interface ChatNotificationData {
 
 
 export interface CallNotificationData {
-    chatId: number;
-    message: string;
+    relacion_id: number;
+    llamada_id: number;
+    accion: string;
 }

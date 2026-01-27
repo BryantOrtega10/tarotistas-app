@@ -22,6 +22,8 @@ export interface Llamada {
   fk_pago?: number | null;
   created_at?: string | null;
   updated_at?: string | null;
+  type?: string | null;
+  
 
   // Relaciones
   cliente_tarotista?: ClienteTarotista;
