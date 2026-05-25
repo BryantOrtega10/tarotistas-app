@@ -20,6 +20,7 @@ export const setInterceptorHandlers = async (onModal: () => void, onLogout: () =
 AxiosInstance.interceptors.request.use(async (config) => {
     if (await hasSecureItem('access_token')) {
         const accessToken = await getSecureItem('access_token');
+        console.log("El access es: ", accessToken)
         config.headers.Authorization = `Bearer ${accessToken}`;
     }
     return config;

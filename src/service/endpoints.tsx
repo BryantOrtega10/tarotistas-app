@@ -48,6 +48,13 @@ export const LLAMADAS_ENDPOINTS  = {
     FINALIZAR: 'api/tarotista/llamada/finalizar/{idLlamada}',
     DETALLE: 'api/tarotista/llamada/detalle/{idLlamada}',
     ACTIVA: 'api/tarotista/llamada/activa',
+
+    TERMINAR_SEGMENTO: 'api/tarotista/llamada/segmento/terminar/{idLlamada}',
 };
 
 
+
+export const PAYMENTS_ENDPOINTS  = {
+    OBTENER_PAGOS: 'api/tarotista/pagos',
+    OBTENER_RESUMEN: 'api/tarotista/pagos/resumen',
+};

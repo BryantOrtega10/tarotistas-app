@@ -7,9 +7,66 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:894566933810:android:e9130a8b6dc580642ae32b",
+        "android_client_info": {
+          "package_name": "com.mdccolombia.tarot.sabila.client"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM7oQpQ7Pt8tOToF5X3s9l2s39PFioIz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:894566933810:android:2b13025d720014b02ae32b",
         "android_client_info": {
           "package_name": "com.mdccolombia.tarot.sabila.tarotista"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM7oQpQ7Pt8tOToF5X3s9l2s39PFioIz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894566933810:android:dd92646fe32eea712ae32b",
+        "android_client_info": {
+          "package_name": "com.mdccolombia.tarotsabila"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM7oQpQ7Pt8tOToF5X3s9l2s39PFioIz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894566933810:android:cefbdfbc1dcd9acc2ae32b",
+        "android_client_info": {
+          "package_name": "com.mdccolombia.tarotsabila.tarotista"
         }
       },
       "oauth_client": [],

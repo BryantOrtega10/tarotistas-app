@@ -16,12 +16,17 @@ import EditProfilePage from './pages/MyProfilePages/EditProfilePage';
 import MyRatingsPage from './pages/MyRatingsPages/MyRatingsPage';
 import { User } from './models/User.model';
 import { removeSecureItem } from './utils/SecureStorage';
+import HelpPage from './pages/HelpPage';
+import PaymentsPage from './pages/PaymentsPages/PaymentsPage';
+import ModifyAccountPage from './pages/PaymentsPages/ModifyAccountPage';
+import HistoryPaymentsPage from './pages/PaymentsPages/HistoryPaymentsPage';
 
 
 
 export const AppRoutes: React.FC = () => {
     const renderRedirect = () => {
         const userData = localStorage.getItem("loggedInUser");
+        console.log(userData)
         if (userData) {
             const user = JSON.parse(userData) as User
             if (user.status === 3) {
@@ -77,6 +82,22 @@ export const AppRoutes: React.FC = () => {
             </Route>
             <Route exact path="/ratings">
                 <MyRatingsPage />
+            </Route>
+            <Route exact path="/payments">
+                <PaymentsPage />
+            </Route>
+            <Route exact path="/history-payments">
+                <HistoryPaymentsPage />
+            </Route>
+            <Route exact path="/modify-account">
+                <ModifyAccountPage />
+            </Route>
+
+            
+            
+            
+            <Route exact path="/help">
+                <HelpPage />
             </Route>
 
             <Route exact path="/">

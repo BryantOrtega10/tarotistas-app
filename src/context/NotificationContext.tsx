@@ -50,6 +50,7 @@ export const NotificationProvider = ({ children }: { children: ReactNode }) => {
 
       // Listener: cuando llega una notificación en primer plano
       await PushNotifications.addListener("pushNotificationReceived", (notificationReceived) => {
+        
         if ("chatId" in notificationReceived.data) {
           // Notificación de reacción
           const chatNotification: ChatNotificationData = notificationReceived.data;
@@ -57,6 +58,9 @@ export const NotificationProvider = ({ children }: { children: ReactNode }) => {
         } else {
           // Notificación de servicio
           const notificacionServiceData: CallNotificationData = notificationReceived.data;
+          console.log("=====================NUEVA NOTIFICACION=======================")
+          console.log(notificacionServiceData.accion)
+          console.log("==============================================================")
           setCallNotification(notificacionServiceData);
         }
       });

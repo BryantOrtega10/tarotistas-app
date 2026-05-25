@@ -45,14 +45,14 @@ const ProfileImage: React.FC<ProfileImageProps> = ({ user, showName = false, isE
         <div className={`profile-image-container`}>
             <figure onClick={takePicture}>
                 <IonImg src={ value ? `data:image/jpeg;base64,${value}` :                    
-                    user.photo ? `${import.meta.env.VITE_API_BASE_URL}storage/users/${user.photo}` : 
+                    user?.photo ? `${import.meta.env.VITE_API_BASE_URL}storage/users/${user.photo}` : 
                     '/assets/images/no-person/no-person.png'} className={`preview-image-${imageType}`} />
                 {(isEditable && <div className='overlay-image'>
                     <img src={`/assets/images/lapizBlanco/lapizBlanco.png`}
                         srcSet={`/assets/images/lapizBlanco/lapizBlanco.png 1x, /assets/images/lapizBlanco/lapizBlanco@2x.png 2x, /assets/images/lapizBlanco/lapizBlanco@3x.png 3x`} />
                 </div>)}
             </figure>
-            {(showName && <span>{user.name}</span>)}
+            {(showName && <span>{user?.name}</span>)}
         </div>
     );
 };

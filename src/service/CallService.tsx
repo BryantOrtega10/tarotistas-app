@@ -9,7 +9,18 @@ import { PostCallResponse } from '../types/responses/CallResponse';
 
 
 export const CallService = {
-
+    async postTerminarSegmento(idLlamada: number): Promise<PostCallResponse> {
+        try {
+            const response = await axios.post<PostCallResponse>(LLAMADAS_ENDPOINTS.TERMINAR_SEGMENTO.replace(`{idLlamada}`, idLlamada.toString()));
+            return response.data;
+        } catch (error: any) {
+            throw new Error(
+                error?.response?.data?.message ??
+                error?.message ??
+                "Error desconocido."
+            );
+        }
+    },
     async getLlamada(call_id: number): Promise<PostCallResponse> {
         try {
             const response = await axios.get<PostCallResponse>(LLAMADAS_ENDPOINTS.DETALLE.replace(`{idLlamada}`, call_id.toString()));

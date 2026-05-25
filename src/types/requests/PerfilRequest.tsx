@@ -1,8 +1,8 @@
 
 export interface MiCuentaRequest{
-    tipoCuenta?: string;
+    tipoCuenta?: number;
     cuenta: string;
-    banco: string;
+    banco: number;
 }
 
 export interface ActualizarPerfilRequest{

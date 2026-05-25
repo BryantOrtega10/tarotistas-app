@@ -24,6 +24,10 @@ export function useCallPage(call_id: number) {
     const [showStartCall, setShowStartCall] = useState<boolean>(true);
     const [isMuted, setIsMuted] = useState(false);
 
+    const [showReconnect, setShowReconnect] = useState<boolean>(false);
+    
+
+
     useEffect(() => {
         remoteAudioRef.current = document.createElement("audio");
         remoteAudioRef.current.autoplay = true; // importante
@@ -180,6 +184,23 @@ export function useCallPage(call_id: number) {
 
         pc.onconnectionstatechange = () => {
             console.log("Conexion cambio", pc.connectionState);
+            if(pc.connectionState === "connected"){
+                setShowReconnect(false)
+                console.log("--------------------CONEXION CREADA-------------------------- ");
+                console.log("--------------------CONEXION CREADA-------------------------- ");
+                console.log("--------------------CONEXION CREADA-------------------------- ");
+                console.log("--------------------CONEXION CREADA-------------------------- ");
+                console.log("--------------------CONEXION CREADA-------------------------- ");
+            }
+            if(pc.connectionState === "disconnected"){
+                setShowReconnect(true)
+                CallService.postTerminarSegmento(call_id)
+                console.log("--------------------CONEXION PERDIDA-------------------------- ");
+                console.log("--------------------CONEXION PERDIDA-------------------------- ");
+                console.log("--------------------CONEXION PERDIDA-------------------------- ");
+                console.log("--------------------CONEXION PERDIDA-------------------------- ");
+                console.log("--------------------CONEXION PERDIDA-------------------------- ");
+            }
         };
         pc.onsignalingstatechange = () => {
             console.log("Signaling:", pc.signalingState);
@@ -271,6 +292,7 @@ export function useCallPage(call_id: number) {
         localStreamRef.current = null;
 
         setStatus("ended");
+        setShowReconnect(false)
 
         await CallService.postFinalizar(call_id)
         history.replace('/home')
@@ -366,6 +388,7 @@ export function useCallPage(call_id: number) {
         receiverBorder,
         transmitterBorder,
         showStartCall,
+        showReconnect,
         isMuted,
         muteMic,
         unmuteMic,

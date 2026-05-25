@@ -1,4 +1,4 @@
-package com.mdccolombia.tarot.sabila.tarotista;
+package com.mdccolombia.tarotsabila.tarotista;
 
 import ee.forgr.capacitor.social.login.GoogleProvider;
 import ee.forgr.capacitor.social.login.SocialLoginPlugin;

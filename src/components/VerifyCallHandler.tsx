@@ -10,6 +10,7 @@ const VerifyCallHandler = () => {
 
     useEffect(() => {
         if (!loggedInUser) return;
+        if(loggedInUser.status != 3) return;
         consultarLlamada();
         console.log("Consultando llamada");
 

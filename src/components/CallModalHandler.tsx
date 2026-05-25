@@ -37,7 +37,8 @@ const CallModalHandler = () => {
                 if (callNotification) {
                     const idLlamada = callNotification.llamada_id;
                     try {
-                        await CallService.postRejectCall(idLlamada);
+                        CallService.postRejectCall(idLlamada);
+                        cleanNotification()
                     } catch (err: any) {
                         console.log(err)
                         return false;
@@ -87,8 +88,6 @@ const CallModalHandler = () => {
                     return false;
                 }
                 cleanNotification()
-                history.replace(`/call/${data.llamada.id}`)
-
             } catch (err: any) {
                 setIsLoading(false);
                 cleanNotification()

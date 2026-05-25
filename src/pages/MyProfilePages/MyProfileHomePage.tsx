@@ -20,13 +20,16 @@ const MyProfileHomePage: React.FC = () => {
     const handleRatings = () => {
         history.push('/ratings')
     }
+    const handlePayments = () => {
+        history.push('/payments')
+    }
     return (
         <IonPage>
             <IonContent fullscreen className='padding-container-all'>
                 <h1>Tu perfil</h1>
                 <ProfileImage showName user={loggedInUser!} />
                 <section className='custom-cards'>
-                    <CustomActionCard textAction='Ver más' handleClick={() => { }}>Historial y pagos</CustomActionCard>
+                    <CustomActionCard textAction='Ver más' handleClick={handlePayments}>Historial y pagos</CustomActionCard>
                     <CustomActionCard textAction='Ver más' handleClick={handleMyProfileDetails}>Detalles de mi cuenta</CustomActionCard>
                     <CustomActionCard textAction='Ver más' handleClick={handleRatings}>Calificaciones</CustomActionCard>
                 </section>

@@ -1,7 +1,7 @@
 import { Especialidad } from "../../models/Especialidad.model";
 import { GeneralPostResponse } from "./GeneralResponse";
 
-export interface MiPerfilResponse{
+export interface MiPerfilResponse {
     success: boolean;
     message: string;
     data: {
@@ -14,31 +14,32 @@ export interface MiPerfilResponse{
         horario_inicio: string;
         horario_fin: string;
         especialidades: Especialidad[];
-    }    
+    }
 }
 
+export interface MiCuentaData {
+    tipo_cuenta?: number;
+    cuenta?: string;
+    banco_id?: number;
+}
 
-export interface MiCuentaResponse{
+export interface MiCuentaResponse {
     success: boolean;
     message: string;
-    data: {
-        tipo_cuenta?: number;
-        cuenta?: string;
-        banco_id?: number;
-    }    
+    data: MiCuentaData;
 }
 
-export interface EstadoConexionResponse{
+export interface EstadoConexionResponse {
     success: boolean;
     message: string;
     data: {
         conexion_status: number;
-    }    
+    }
 }
 
 
 
-export interface PostMiCuentaResponse extends GeneralPostResponse {}
+export interface PostMiCuentaResponse extends GeneralPostResponse { }
 export interface ActualizarPerfilResponse extends GeneralPostResponse {
     data: {
         photo?: string;

@@ -19,6 +19,7 @@ const CallPage: React.FC = () => {
         receiverBorder,
         transmitterBorder,
         showStartCall,
+        showReconnect,
         isMuted,
         muteMic,
         unmuteMic,
@@ -60,6 +61,18 @@ const CallPage: React.FC = () => {
                     <p>Todo listo? Cuando quieras haz click en iniciar llamada para iniciar la conexion</p>
                     <CustomButton onClick={handleStartCall} variant='purple-outline'>
                         Iniciar llamada
+                    </CustomButton>
+                </CustomModalSheet>
+
+
+                <CustomModalSheet
+                    isOpen={showReconnect}
+                    backdropDismiss={false}
+                >
+                    <h3>Conexión perdida</h3>
+                    <p>Estamos tratando de reconectar con {currentCall?.cliente_tarotista?.cliente?.user?.name} ...</p>
+                    <CustomButton onClick={colgar} variant='purple-outline'>
+                        Terminar llamada
                     </CustomButton>
                 </CustomModalSheet>
 

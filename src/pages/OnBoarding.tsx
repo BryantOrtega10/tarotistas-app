@@ -38,21 +38,21 @@ const Onboarding: React.FC = () => {
 
   const data: PageItemModel[] = [
     {
-      title: "Titulo1 Lorem",
+      title: "¿Cómo funciona?",
       image: "onBoarding1",
-      text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam posuere eros elit, a fermentum velit hendrerit sit amet`,
+      text: `activa la disponibilidad para recibir consultas y atiende de forma oportuna a los usuarios`,
       clickContinue: clickContinue
     },
     {
-      title: "Titulo2 Lorem",
+      title: "¿Cómo genero ingresos?",
       image: "onBoarding2",
-      text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam posuere eros elit, a fermentum velit hendrerit sit amet`,
+      text: `Los ingresos se generan según el tiempo de consulta`,
       clickContinue: clickContinue
     },
     {
-      title: "Titulo3 Lorem",
+      title: "Mas recomendaciones",
       image: "onBoarding3",
-      text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam posuere eros elit, a fermentum velit hendrerit sit amet`,
+      text: `Mantenen una buena calificación dentro de la plataforma para que te recomiende mucho más`,
       clickContinue: clickContinue
     },
   ];

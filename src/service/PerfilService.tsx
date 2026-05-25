@@ -1,8 +1,9 @@
 import axios from './AxiosInstance';
 import { PERFIL_ENDPOINTS } from './endpoints';
 import { ActualizarPerfilResponse, EstadoConexionResponse, MiCuentaResponse, MiPerfilResponse, PostMiCuentaResponse } from '../types/responses/PerfilResponse';
-import { ActualizarPerfilRequest } from '../types/requests/PerfilRequest';
+import { ActualizarPerfilRequest, MiCuentaRequest } from '../types/requests/PerfilRequest';
 import { base64ToBlob } from '../utils/base64ToBlob';
+import { GeneralPostResponse } from '../types/responses/GeneralResponse';
 
 
 
@@ -24,6 +25,19 @@ export const PerfilService = {
     async getMiCuenta(): Promise<MiCuentaResponse> {
         try {
             const response = await axios.get<MiCuentaResponse>(PERFIL_ENDPOINTS.MI_CUENTA);
+            return response.data;
+        } catch (error: any) {
+            throw new Error(
+                error?.response?.data?.message ??
+                error?.message ??
+                "Error desconocido."
+            );
+        }
+
+    },
+    async postMiCuenta(request: MiCuentaRequest): Promise<GeneralPostResponse> {
+        try {
+            const response = await axios.post<MiCuentaResponse>(PERFIL_ENDPOINTS.MI_CUENTA, request);
             return response.data;
         } catch (error: any) {
             throw new Error(

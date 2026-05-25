@@ -1,0 +1,40 @@
+:root {
+	--ion-color-white: #faedfc;
+	--ion-color-white-rgb: 255, 255, 255;
+	--ion-color-white-contrast: #000000;
+	--ion-color-white-contrast-rgb: 0, 0, 0;
+	--ion-color-white-shade: #ececec;
+	--ion-color-white-tint: #b6b6b6;
+}
+
+.custom-accordion {
+	--ion-color-base: var(--ion-color-white);
+	--ion-color-base-rgb: var(--ion-color-white-rgb);
+	--ion-color-contrast: var(--ion-color-white-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-white-contrast-rgb);
+	--ion-color-shade: var(--ion-color-white-shade);
+	--ion-color-tint: var(--ion-color-white-tint);
+    border-radius: 10px;
+    margin-bottom: 0.25rem;
+}
+.custom-accordion.accordion-expanded,
+.custom-accordion.accordion-expanding {
+	margin: 0.75rem 0;
+}
+.custom-accordion div[slot="content"] {
+	background: rgba(var(--ion-color-white-rgb), 1);
+}
+.custom-ion-padding {
+	padding: calc(0.25rem * 6);
+	padding-top: calc(0.25rem * 2);
+	display: grid;
+}
+
+.item .custom-accordion-title {
+	--color: #1D1D1D;
+	border-left: 3px solid var(--color-secondary);
+	padding-left: 1rem;
+	letter-spacing: 0.75px;
+    font-size: 1.1rem;
+    
+}
